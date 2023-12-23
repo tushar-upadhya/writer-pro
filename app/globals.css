@@ -6,6 +6,17 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
+  --fuchsia: rgb(232 121 249);
+  --cyan: rgb(34 211 238);
+  --rose: rgb(251 113 133);
+  --amber: rgb(251 191 36);
+  --green: rgb(74 222 128);
+  --fuchsiaLight: rgb(217 70 239);
+  --cyanLight: rgb(6 182 212);
+  --roseLight: rgb(244 63 94);
+  --amberLight: rgb(245 158 11);
+  --greenLight: rgb(34 197 94);
 }
 
 @media (prefers-color-scheme: dark) {
