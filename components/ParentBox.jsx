@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import ToolBox from "./ToolBox";
+import { PLACEHOLDER } from "@/utils/util";
 
 const ParentBox = () => {
   const [text, setText] = useState("");
@@ -17,21 +18,6 @@ const ParentBox = () => {
   const [lineCount, setLineCount] = useState(0);
   const [memory, setMemory] = useState(0);
   const [textSize, setTextSize] = useState(0);
-  const PLACEHOLDER = ` Enter your text here...
-  Welcome to Writer Pro 🚀
-
-You can see letter count, word count, line count, and text memory size in Statistics section.
-You can also set text size according to your requirement and change theme of your choice.
-
-What is Magic Spell? [BETA]
-Need 1000 words article and stuck on 960? use Magic Spell and it will add relevant characters to your article to make it even more longer.
-Not just article, try this with anything. Story, Letter, Cover, and more.
-
-Wrote something important but forgot to save? Don't worry, we got your back. Your text is saved automatically in your device.
-
-It works on all devices, Sounds good? Well there is lot more to come. 
-This project is Open Source so if you want any new feature, you can add this yourself by contributing to our GitHub repository or request a feature
-  `;
 
   useEffect(() => {
     setLetterCount(text.length);
@@ -49,7 +35,7 @@ This project is Open Source so if you want any new feature, you can add this you
   }, [text]);
 
   const decreaseTextSize = () => {
-    if (text > 1) {
+    if (textSize > 1) {
       setTextSize(textSize - 1);
     }
   };
@@ -59,40 +45,34 @@ This project is Open Source so if you want any new feature, you can add this you
       setTextSize(textSize + 1);
     }
   };
-
   useEffect(() => {
     let textAreaStyle = document.getElementById("textarea").style;
-
     if (textSize === 1) {
       textAreaStyle.fontSize = "0.875rem";
       textAreaStyle.lineHeight = "1.25rem";
     }
-
     if (textSize === 2) {
       textAreaStyle.fontSize = "1rem";
       textAreaStyle.lineHeight = "1.5rem";
     }
-
     if (textSize === 3) {
       textAreaStyle.fontSize = "1.125rem";
       textAreaStyle.lineHeight = "1.75rem";
     }
-
     if (textSize === 4) {
       textAreaStyle.fontSize = "1.25rem";
       textAreaStyle.lineHeight = "1.75rem";
     }
-
     if (textSize === 5) {
       textAreaStyle.fontSize = "1.5rem";
       textAreaStyle.lineHeight = "2rem";
     }
-  });
+  }, [textSize]);
 
   return (
     <>
       <div className="flex flex-col pb-14 md:pb-0 md:flex-row">
-        <div className="self-start py-3 my-2">
+        <div className="self-start py-4 my-2">
           <textarea
             name=""
             id="textarea"
@@ -102,11 +82,9 @@ This project is Open Source so if you want any new feature, you can add this you
             onChange={(e) => setText(e.target.value)}
             placeholder={PLACEHOLDER}
             className="pr-2 text-xl bg-transparent outline-none selection:bg-fuchsia-500 selection:text-fuchsia-50"
-          />
+          ></textarea>
         </div>
-
-        {/* text stats */}
-
+        {/* Text Stats */}
         <div className="flex flex-col items-center justify-center w-full text-center text-stats h-max">
           <p className="flex flex-row text-3xl font-normal">
             <svg
@@ -125,14 +103,12 @@ This project is Open Source so if you want any new feature, you can add this you
             </svg>
             Statistics
           </p>
-
           <div className="flex flex-col">
-            <p className="mt-4">Characters {letterCount}</p>
-            <p className="mt-4">Words {wordCount}</p>
-            <p className="mt-4">{lineCount} Lines</p>
-            <p className="mt-4">{memory} kb</p>
+            <p className="mt-4">{letterCount} characters</p>
+            <p className="mt-4">{wordCount} words</p>
+            <p className="mt-4">{lineCount} lines</p>
+            <p className="mt-4">{memory} Kb</p>
           </div>
-
           <p className="flex flex-row text-3xl font-normal mt-9">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -150,10 +126,9 @@ This project is Open Source so if you want any new feature, you can add this you
             </svg>
             Text Size
           </p>
-
           <div className="flex flex-row mt-2">
             <div
-              className="mx-1 transition-all duration-150 ease-in-out transform cursor-pointer hover:scale-105 active:scale-100"
+              className="mx-1 transition-all duration-100 ease-in-out transform cursor-pointer hover:scale-105 active:scale-100"
               onClick={decreaseTextSize}
             >
               <svg
@@ -171,9 +146,8 @@ This project is Open Source so if you want any new feature, you can add this you
                 />
               </svg>
             </div>
-
             <div
-              className="mx-1 transition-all duration-150 ease-in-out transform cursor-pointer hover:scale-105 active:100"
+              className="mx-1 transition-all duration-100 ease-in-out transform cursor-pointer hover:scale-105 active:scale-100"
               onClick={increaseTextSize}
             >
               <svg
@@ -194,8 +168,7 @@ This project is Open Source so if you want any new feature, you can add this you
           </div>
         </div>
       </div>
-
-      <ToolBox />
+      <ToolBox text={text} setText={setText} />
     </>
   );
 };

@@ -4,6 +4,7 @@ import { useEffect } from "react";
 
 import image from "../assets/header.svg";
 import Image from "next/image";
+import { amber, cyan, fuchsia, green, rose } from "@/utils/color";
 
 const Header = () => {
   useEffect(() => {
@@ -23,51 +24,6 @@ const Header = () => {
       green();
     }
   }, []);
-
-  const fuchsia = () => {
-    document.documentElement.classList.add("fuchsia");
-    document.documentElement.classList.remove("cyan");
-    document.documentElement.classList.remove("rose");
-    document.documentElement.classList.remove("amber");
-    document.documentElement.classList.remove("green");
-    localStorage.setItem("favTheme", "fuchsia");
-  };
-
-  const cyan = () => {
-    document.documentElement.classList.add("cyan");
-    document.documentElement.classList.remove("fuchsia");
-    document.documentElement.classList.remove("rose");
-    document.documentElement.classList.remove("amber");
-    document.documentElement.classList.remove("green");
-    localStorage.setItem("favTheme", "cyan");
-  };
-
-  const rose = () => {
-    document.documentElement.classList.add("rose");
-    document.documentElement.classList.remove("cyan");
-    document.documentElement.classList.remove("fuchsia");
-    document.documentElement.classList.remove("amber");
-    document.documentElement.classList.remove("green");
-    localStorage.setItem("favTheme", "rose");
-  };
-
-  const amber = () => {
-    document.documentElement.classList.add("amber");
-    document.documentElement.classList.remove("cyan");
-    document.documentElement.classList.remove("fuchsia");
-    document.documentElement.classList.remove("fuchsia");
-    document.documentElement.classList.remove("green");
-    localStorage.setItem("favTheme", "amber");
-  };
-
-  const green = () => {
-    document.documentElement.classList.add("green");
-    document.documentElement.classList.remove("cyan");
-    document.documentElement.classList.remove("fuchsia");
-    document.documentElement.classList.remove("amber");
-    document.documentElement.classList.remove("fuchsia");
-    localStorage.setItem("favTheme", "green");
-  };
 
   return (
     <div>

@@ -22,7 +22,7 @@ const Broadcast = () => {
   }, []);
 
   return (
-    <div>
+    <>
       {isVisible && (
         <div className="h-8">
           <div className="absolute top-0 left-0 flex items-center justify-center w-full h-8 text-xs text-white transition-all ease-in-out bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 sm:text-sm md:text-base">
@@ -32,7 +32,7 @@ const Broadcast = () => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
