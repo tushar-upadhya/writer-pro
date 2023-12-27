@@ -7,7 +7,7 @@ import {
   LayoutPanelTop,
 } from "lucide-react";
 
-const CommonButton = ({ onClick, type, templates }) => {
+const CommonButton = ({ onClick, type }) => {
   let Icon, buttonText;
 
   switch (type) {
