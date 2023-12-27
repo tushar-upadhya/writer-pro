@@ -3,10 +3,6 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-
   --fuchsia: rgb(232 121 249);
   --cyan: rgb(34 211 238);
   --rose: rgb(251 113 133);
@@ -19,20 +15,199 @@
   --greenLight: rgb(34 197 94);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+#textarea {
+  height: 70vh;
+  width: 70vw;
+  resize: none;
+}
+#textarea::placeholder {
+  opacity: 0.5;
+}
+@media (max-width: 768px) {
+  #textarea {
+    width: 90vw;
   }
 }
+.text-stats {
+  max-height: 70vh;
+}
+.fuchsia #mainBody {
+  color: var(--fuchsia);
+}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.fuchsia #textarea::selection {
+  background-color: var(--fuchsiaLight);
+}
+.cyan #mainBody {
+  color: var(--cyan);
+}
+
+.cyan #textarea::selection {
+  background-color: var(--cyanLight);
+}
+.rose #mainBody {
+  color: var(--rose);
+}
+
+.rose #textarea::selection {
+  background-color: var(--roseLight);
+}
+.amber #mainBody {
+  color: var(--amber);
+}
+
+.amber #textarea::selection {
+  background-color: var(--amberLight);
+}
+.green #mainBody {
+  color: var(--green);
+}
+
+.green #textarea::selection {
+  background-color: var(--greenLight);
+}
+
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 0.65em;
+  height: 0.6em;
+}
+#textarea::-webkit-scrollbar {
+  background-color: transparent;
+  width: 0.55em;
+  height: 0.6em;
+}
+@media (max-width: 640px) {
+  ::-webkit-scrollbar {
+    background-color: transparent;
+    width: 0.65em;
+    height: 0.4em;
+  }
+  #textarea::-webkit-scrollbar {
+    background-color: transparent;
+    width: 0.3em;
+  }
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  transform-style: preserve-3d;
+  background-color: var(--fuchsiaLight);
+  border-radius: 50px;
+  border-color: rgb(24 24 27);
+  border-style: solid;
+}
+.fuchsia ::-webkit-scrollbar-thumb {
+  transform-style: preserve-3d;
+  background-color: var(--fuchsiaLight);
+  border-radius: 50px;
+  border-color: rgb(24 24 27);
+  border-style: solid;
+}
+.cyan ::-webkit-scrollbar-thumb {
+  transform-style: preserve-3d;
+  background-color: var(--cyanLight);
+  border-radius: 50px;
+  border-color: rgb(24 24 27);
+  border-style: solid;
+}
+.rose ::-webkit-scrollbar-thumb {
+  transform-style: preserve-3d;
+  background-color: var(--roseLight);
+  border-radius: 50px;
+  border-color: rgb(24 24 27);
+  border-style: solid;
+}
+.amber ::-webkit-scrollbar-thumb {
+  transform-style: preserve-3d;
+  background-color: var(--amberLight);
+  border-radius: 50px;
+  border-color: rgb(24 24 27);
+  border-style: solid;
+}
+.green ::-webkit-scrollbar-thumb {
+  transform-style: preserve-3d;
+  background-color: var(--greenLight);
+  border-radius: 50px;
+  border-color: rgb(24 24 27);
+  border-style: solid;
+}
+
+input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 60px;
+  height: 26px;
+  background: rgb(39 39 42);
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+
+input:checked + label:after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+label:after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 16px;
+  height: 16px;
+  background: var(--fuchsiaLight);
+  border-radius: 90px;
+  transition: 0.3s;
+}
+.fuchsia label:after {
+  background: var(--fuchsiaLight);
+}
+.cyan label:after {
+  background: var(--cyanLight);
+}
+.rose label:after {
+  background: var(--roseLight);
+}
+.amber label:after {
+  background: var(--amberLight);
+}
+.green label:after {
+  background: var(--greenLight);
+}
+input:checked + label {
+  background: var(--fuchsiaLight);
+}
+.fuchsia input:checked + label {
+  background: var(--fuchsiaLight);
+}
+.cyan input:checked + label {
+  background: var(--cyanLight);
+}
+.rose input:checked + label {
+  background: var(--roseLight);
+}
+.amber input:checked + label {
+  background: var(--amberLight);
+}
+.green input:checked + label {
+  background: var(--greenLight);
+}
+input:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
 }

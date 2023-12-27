@@ -2,9 +2,9 @@
 
 import { useEffect } from "react";
 
-import image from "../assets/header.svg";
 import Image from "next/image";
-import { amber, cyan, fuchsia, green, rose } from "@/utils/color";
+import logo from "../assets/logo.png";
+import { amber, cyan, fuchsia, green, rose } from "@/utils/utilColor";
 
 const Header = () => {
   useEffect(() => {
@@ -29,44 +29,39 @@ const Header = () => {
     <div>
       <div className="flex flex-row">
         <p className="text-4xl">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-12 h-12 ml-2"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={1.5}
-              d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+          <a href="https://tusharupadhyay.vercel.app/" target="_blank">
+            <Image
+              src={logo}
+              height={50}
+              width={50}
+              alt="logo"
+              className="w-12 h-12 ml-2"
             />
-          </svg>
+          </a>
           Writer Pro
         </p>
 
         <div className="absolute flex flex-row pt-2 right-4 md:pt-0">
           <div
-            className="w-4 h-4 m-1 rounded-full cursor-pointer active:scale-90 bg-fuchsia-400"
+            className="w-4 h-4 m-1 rounded-full cursor-pointer active:scale-90 bg-fuchsia-400 hover:scale-110"
             onClick={fuchsia}
-          ></div>
+          />
           <div
-            className="w-4 h-4 m-1 rounded-full cursor-pointer active:scale-90 bg-cyan-400"
+            className="w-4 h-4 m-1 rounded-full cursor-pointer active:scale-90 bg-cyan-400 hover:scale-110"
             onClick={cyan}
-          ></div>
+          />
           <div
-            className="w-4 h-4 m-1 rounded-full cursor-pointer active:scale-90 bg-rose-400"
+            className="w-4 h-4 m-1 rounded-full cursor-pointer active:scale-90 bg-rose-400 hover:scale-110"
             onClick={rose}
-          ></div>
+          />
           <div
-            className="w-4 h-4 m-1 rounded-full cursor-pointer active:scale-90 bg-amber-400"
+            className="w-4 h-4 m-1 rounded-full cursor-pointer active:scale-90 bg-amber-400 hover:scale-110"
             onClick={amber}
-          ></div>
+          />
           <div
-            className="w-4 h-4 m-1 bg-green-400 rounded-full cursor-pointer active:scale-90"
+            className="w-4 h-4 m-1 bg-green-400 rounded-full cursor-pointer active:scale-90 hover:scale-110"
             onClick={green}
-          ></div>
+          />
         </div>
       </div>
     </div>

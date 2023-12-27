@@ -1,46 +1,65 @@
 const Templates = ({ onClose, setText }) => {
+  const formalLetter = () => {
+    setText(`
+From: [Sender Name]
+[Title] | [Company] | [Address] | [City] | [State] | [Zip]
+
+[Date]
+
+To: [Recipient Name]
+[Title] | [Company] | [Address] | [City] | [State] | [Zip]
+
+Dear [Recipient Name]:
+
+// Letter Content
+
+Sincerely,
+[Your Name]
+[Title]
+
+        `);
+  };
   const informalLetter = () => {
     setText(`
-    [Street]
-    
-    [Area]
-    
-    [City]
-    
-    [Date]
-    
-    
-    Dear [Name],
-    
-    // Letter Content
-    
-    Lots of Love
-    [Your Name]
-          `);
-  };
+[Street]
 
-  const referencesLetter = () => {
+[Area]
+
+[City]
+
+[Date]
+
+
+Dear [Name],
+
+// Letter Content
+
+Lots of Love
+[Your Name]
+      `);
+  };
+  const referenceLetter = () => {
     setText(`
-    [Address of the person who is reffering]
-    
-    [Date]
-    
-    [Address of other company]
-    
-    Dear [Name]: 
-    
-    It's my pleasure to recommend [Name] for the position of [Position] at your company. [Name] and I worked together for just over [duration] years when she was a [position] in my department at [Company name]. 
-    
-    // Other Content
-    
-    I recommend [Name] without reservations. Please do not hesitate to reach out with any questions. You can reach me at [Email / Contact]
-    
-    Sincerely, 
-    
-    [Name] (signature hard copy letter)
-    
-    [Name]
-          `);
+[Address of the person who is reffering]
+
+[Date]
+
+[Address of other company]
+
+Dear [Name]: 
+
+It's my pleasure to recommend [Name] for the position of [Position] at your company. [Name] and I worked together for just over [duration] years when she was a [position] in my department at [Company name]. 
+
+// Other Content
+
+I recommend [Name] without reservations. Please do not hesitate to reach out with any questions. You can reach me at [Email / Contact]
+
+Sincerely, 
+
+[Name] (signature hard copy letter)
+
+[Name]
+      `);
   };
 
   const coverLetter = () => {
@@ -65,7 +84,7 @@ Sincerely,
   };
 
   return (
-    <div className="bg-zinc-900 p-2 fixed -mt-12 md:-mt-28 sm:rounded-t-md overflow-x-scroll overflow-y-hidden flex flex-col flex-wrap items-start max-m-[100vw] h-12 md:h-12">
+    <div className="bg-zinc-900 p-2 fixed -mt-12 md:-mt-28 sm:rounded-t-md overflow-x-scroll overflow-y-hidden flex flex-col flex-wrap items-start max-w-[100vw] h-12 md:h-10">
       <div className="flex flex-row flex-wrap space-x-4 w-max h-max">
         <p
           className="mb-1 cursor-pointer"
@@ -81,7 +100,7 @@ Sincerely,
         </p>
         <p
           className="mb-1 cursor-pointer"
-          onClick={() => referencesLetter() & onClose()}
+          onClick={() => referenceLetter() & onClose()}
         >
           Reference Letter
         </p>
